@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+:root {
+  --st: #7a4a00;
+  --nd: #e6a520;
+  --rd: #ffd77a;
+  --accent: #fff8e7;
+}
+
+body{
+    background-color: var(--st);
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  color: var(--st);
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease-in-out 1.5s forwards; 
+}
+
+nav{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    justify-self: center;
+    padding: 20px 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.507);
+    border-radius: 50px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: var(--nd);
+    position: fixed;
+    width: 80%;
+    z-index: 10;
+    animation: left-right 2s both;
+    animation-delay: 4.4s;
+}
+
+ul li{
+    display: inline;
+    margin: 5px;
+}
+
+ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--nd);
+    transition: 0.5s ease;
+}
+
+ul li a:hover{
+    transform: translateY(-6px);
+    color: var(--rd);
+}
+
+.hero{
+    background-image:linear-gradient(rgba(230, 165, 32, 0.1), rgba(255, 215, 122, 0.25)), url("heroimg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent);
+    border-bottom: solid 2.5px var(--accent);
+    
+}   
+
+.hero h1{
+    font-size: 3rem;
+    margin: 5px 15px;
+    text-shadow: 2px 2px 5px black;
+    animation: up-down 2s both;
+    animation-delay: 2.5s;
+}
+
+.hero span{
+    color: var(--nd);
+    font-weight: bolder;
+}
+
+.hero p{
+    font-size: 1.2rem;
+    margin: 5px 15px;
+    text-shadow: 2px 2px 3px black;
+    animation: down-up 2s both;
+    animation-delay: 3s;
+}
+
+.cta{
+    position: relative;
+    text-decoration: none;
+    background-color: var(--st);
+    color: var(--nd);
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px black;
+    transition: 0.5s ease;
+    z-index: 1;
+    overflow: hidden;
+    animation: down-up 2s both;
+    animation-delay: 3s;
+}
+
+.cta::before{
+    content: "";
+    width: 0px;
+    height: 43px;
+    background-color: var(--rd);
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.5s ease;
+}
+
+.cta:hover::before{
+    width: 150px;
+}
+
+.cta:hover{
+    box-shadow: 0px 0px 10px var(--nd);
+}
+
+#about{
+    margin: 20px;
+    color: var(--accent);
+}
+
+#about h2{
+    text-decoration: underline;
+    font-size: 2rem;
+    margin: 10px 0;
+    animation: right-left 2.5s both;
+    animation-timeline: view();
+    animation-range: 20% entry 60% cover;
+}
+
+#about p{
+    margin: 10px 0;
+    font-size: 1.2rem;
+    max-width: 60%;
+    animation: right-left 2s both;
+    animation-timeline: view();
+    animation-range: 80% entry 100% cover;
+}
+
+.carousel{
+    max-width: 85%;
+    display:flex;
+    margin: 40px auto;
+    overflow-x: auto;
+    border: solid 4px var(--nd);
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding-right: 1em;
+    animation: spin 20s infinite linear;
+}
+
+.carousel img{
+    align-content: center;
+    border-radius: .2em;
+    transition: .5s ease;
+}
+
+.carousel img:hover{
+    transform: scale(1.05);
+}
+
+#menu{
+    margin: 30px 0;
+    text-align: center;
+}
+
+#menu h2{
+    color: var(--accent);
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+.pizza{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 20px 0;
+    padding: 100px 10px;
+    gap: 3px;
+    background: linear-gradient(90deg,var(--nd), var(--rd));
+    color: var(--st);
+    border-top: solid 3px var(--accent);
+    border-bottom: solid 3px var(--accent);
+}
+
+.burger{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 60px;
+    padding: 100px 10px;
+    gap: 3px;
+    background: linear-gradient(90deg,var(--nd), var(--rd));
+    color: var(--st);
+    border-top: solid 3px var(--accent);
+    border-bottom: solid 3px var(--accent);
+}
+
+#img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 150px;
+    width: 70%;
+    margin: auto;
+    border-radius: .4em;
+    position: relative;
+    transition: 0.5s ease;
+    overflow-x: hidden;
+    box-shadow: 6px 8px 0px var(--nd);
+    animation: right-left 2s both;
+    animation-timeline: view();
+    animation-range: 0% entry 20% cover;
+}
+
+.one{
+    background-image: url("carousel/img2.jpg");
+}
+.two{
+    background-image: url("carousel/img7.jpg");
+}
+.three{
+    background-image: url("carousel/img6.jpg");
+}
+.four{
+    background-image: url("carousel/img3.jpg");
+}
+.five{
+    background-image: url("carousel/img4.jpg");
+}
+.six{
+    background-image: url("carousel/img5.jpg");
+}
+
+#menu h3{
+    margin-top: 15px;
+}
+
+#img::before{
+    content: "";
+    width: 0px;
+    height: 5px;
+    background-color: var(--st);
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+#img:hover::before{
+    width: 500px;
+}
+
+#img:hover{
+    transform: translateY(-10px);
+}
+
+.card h3, .card p{
+    animation: left-right 2s both;
+    animation-timeline: view();
+    animation-range: 0% entry 20% cover;
+    margin: 10px;
+}
+
+#contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+    max-width: max-content;
+    margin: 30px auto;
+    padding: 15px;
+    background: linear-gradient(90deg,var(--rd), var(--nd));
+    border-radius: .5em;
+    color: var(--st);
+}
+
+#contact h2{
+    font-size: 2rem;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    text-decoration: underline;
+}
+
+#contact p{
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+i{
+    margin-left:15px;
+    margin-right:5px;
+    color: var(--st);
+}
+
+#contact a{
+    text-decoration: none;
+    color: var(--st);
+}
+
+#contact img{
+    border-radius: 15px;
+    box-shadow: 5px 5px 0px var(--st);
+    transition: 0.5s ease;
+    margin: 15px;
+}
+
+#contact img:hover{
+    transform: translateY(-8px);
+}
+
+footer{
+    display: flex;
+    justify-self: center;
+    margin: 25px;
+    color: var(--accent);
+}
+
+@keyframes spin {
+    from{translate: 0;}
+    to{translate: -100%;}
+}
+
+
+@keyframes fadeOut {
+  0% { 
+    opacity: 1; 
+    display: flex
+  }
+  99% { 
+    opacity: 0; 
+    display: flex;
+  }
+  100% { 
+    opacity: 0; 
+    display: none;
+  }
+}
+
+@keyframes left-right{
+  from{opacity: 0; transform: translateX(-30px);}
+  to{opacity: 1; transform: translateX(0px);}
+}
+
+@keyframes down-up{
+  from{opacity: 0; transform: translateY(15px);}
+  to{opacity: 1; transform: translateY(0px);}
+}
+
+@keyframes right-left{
+  from{opacity: 0; transform: translateX(30px);}
+  to{opacity: 1; transform: translateX(0px);}
+}
+
+@keyframes up-down{
+  from{opacity: 0; transform: translateY(-15px);}
+  to{opacity: 1; transform: translateY(0px);}
+}
+
+@keyframes scale{
+  from{opacity: 0; transform: scale(0.5);}
+  to{opacity: 1; transform: scale(1);}
+}
+
+
+@media (max-width:1024px){
+    nav{font-size: 1.35rem; padding: 20px;}
+}
+
+@media (max-width:480px){
+    .logo{font-size: 3.5rem;}
+    nav{font-size: 0.7rem; padding: 10px;}
+    .hero h1{font-size: 1.8rem;}
+    .hero p{font-size: 0.9rem;}
+    .cta{padding: 7px 12px; font-size: 0.8rem;}
+    #about h2{font-size: 1.6rem;}
+    #about p{font-size: 0.9rem; max-width: 75%;}
+    .carousel{max-width: 95%;}
+    .carousel img{height: 250px; width: 280px;}
+    #menu h2{font-size: 1.5rem;}
+    #contact{gap: 20px; margin: 15px 0px;}
+    #contact h2{font-size: 1.4rem;}
+    #contact p, #contact span{font-size: 0.8rem;}
+    #contact img{width: 150px; height: 150px;}
+    footer{margin: 15px; font-size: 0.9rem;}
+}
